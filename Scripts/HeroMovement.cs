@@ -7,6 +7,7 @@ public class HeroMovement : MonoBehaviour
     public GameObject meleeAttack;
 
     private Rigidbody rb;
+    private Health hp;
     private bool isGrounded = true;
 
     void Start()
@@ -19,7 +20,7 @@ public class HeroMovement : MonoBehaviour
         float move = Input.GetAxis("Horizontal") * speed;
         rb.linearVelocity = new Vector3(move, rb.linearVelocity.y, 0);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown("w") && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;

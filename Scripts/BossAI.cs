@@ -5,7 +5,7 @@ public class BossAI : MonoBehaviour
     public Transform hero;
     public float speed = 2f;
     public int attackDamage = 10;
-    public float attackRange = .5f;
+    public float attackRange = 1f;
     public float attackCooldown = 1f;
 
     private float attackTime;
