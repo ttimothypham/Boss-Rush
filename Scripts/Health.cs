@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
     public HealthBarUI healthBar; 
+    public bool nextLevelChecker = false;
 
     void Start()
     {
@@ -27,7 +29,17 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            if (gameObject.name == ("Boss"))
+            {
+                nextLevelChecker = true;
+            }
+            if (gameObject.name == ("Hero"))
+            {
+                SceneManager.LoadScene(0);
+                Debug.Log("Game Over!");
+            }
             Die();
+            NextLevel();
         }
     }
 
@@ -35,5 +47,13 @@ public class Health : MonoBehaviour
     {
         Debug.Log($"{gameObject.name} has died!");
         Destroy(gameObject);
+    }
+
+    void NextLevel()
+    {
+        if (nextLevelChecker)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+        }
     }
 }
