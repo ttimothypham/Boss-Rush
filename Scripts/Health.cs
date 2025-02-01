@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
             }
             if (gameObject.name == ("Hero"))
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(6);
                 Debug.Log("Game Over!");
             }
             Die();
@@ -53,7 +53,12 @@ public class Health : MonoBehaviour
     {
         if (nextLevelChecker)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        Debug.Log(SceneManager.GetActiveScene().buildIndex + 1);
+        if (nextLevelChecker && SceneManager.GetActiveScene().buildIndex + 1 == 5)
+        {
+            SceneManager.LoadScene(5);
         }
     }
 }

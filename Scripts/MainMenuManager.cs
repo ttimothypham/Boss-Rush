@@ -7,7 +7,12 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("MainScene"); 
+        SceneManager.LoadScene(1); 
+    }
+
+    public void ReturnToStart()
+    {
+        SceneManager.LoadScene(0); 
     }
 
     public void ShowControls()
